@@ -30,11 +30,16 @@ a {
   font-weight: bolder;
 }
 
-button {
+.btn-std {
   background-color: $dark;
   color: $white;
   font-size: 15px;
   border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $dark / 2;
+  }
 }
 
 footer {
