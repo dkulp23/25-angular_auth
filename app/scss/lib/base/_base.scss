@@ -1,6 +1,18 @@
+@import '../theme/vars';
+
+body {
+  font-family: helvetica;
+}
+
+header {
+  background-color: $dark;
+
+  h2 {
+    color: $white;
+  }
+}
+
 .icon {
-  height: 50px;
-  width: 50px;
   background-image: url('../assets/images/cf-logo.png');
   background-size: cover;
 }
