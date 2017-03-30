@@ -1,1 +1,31 @@
+@import '../../scss/lib/theme/vars';
 
+h2 {
+  margin-left: 5%;
+  margin-top: 50px;
+  color: $dark * 2;
+  font-size: 1.3em;
+}
+
+.gallery-box {
+  height: 80px;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  background-color: $light / 1.5;
+  border-radius: 5px;
+  padding: 5px;
+
+  li {
+    margin-left: 10px;
+    font-size: 15px;
+    line-height: 25px;
+    color: $dark / 2;
+    font-weight: bolder;
+
+    span {
+      color: $dark;
+      font-weight: normal;
+    }
+  }
+}
