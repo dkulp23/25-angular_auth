@@ -6,3 +6,7 @@
 @import './lib/layout/header';
 @import './lib/layout/content';
 @import './lib/layout/footer';
+
+//+++++ VIEWS +++++\\
+@import '../view/landing/landing';
+@import '../view/home/home';
