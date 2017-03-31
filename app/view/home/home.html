@@ -3,7 +3,7 @@
   <div class="clearfix"></div>
   <h2>Galleries</h2>
   <ul>
-    <li
+    <!-- <li
     class="gallery-box"
     ng-repeat="gallery in homeCtrl.galleries">
       <ul>
@@ -11,6 +11,7 @@
         <li>description: <span class="gallery-item">{{ gallery.desc }}</span></li>
         <li>id: <span class="gallery-item">{{ gallery._id }}</span></li>
       </ul>
-    </li>
+    </li> -->
+    <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
   </ul>
 </section>
