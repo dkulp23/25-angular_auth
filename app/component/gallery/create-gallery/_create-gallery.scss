@@ -1,0 +1,9 @@
+@import '../../../scss/lib/theme/vars';
+
+label {
+  color: $dark * 2;
+  float: left;
+  margin-left: 40px;
+  padding-top: 20px;
+  font-size: 20px;
+}

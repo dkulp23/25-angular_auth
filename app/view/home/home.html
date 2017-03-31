@@ -1,3 +1,17 @@
 <section class="home">
-  <h2>{{ homeCtrl.title }}</h2>
+  <create-gallery></create-gallery>
+  <div class="clearfix"></div>
+  <h2>Galleries</h2>
+  <ul>
+    <!-- <li
+    class="gallery-box"
+    ng-repeat="gallery in homeCtrl.galleries">
+      <ul>
+        <li>name: <span class="gallery-item">{{ gallery.name }}</span></li>
+        <li>description: <span class="gallery-item">{{ gallery.desc }}</span></li>
+        <li>id: <span class="gallery-item">{{ gallery._id }}</span></li>
+      </ul>
+    </li> -->
+    <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
+  </ul>
 </section>
