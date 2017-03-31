@@ -5,7 +5,7 @@ require('./_edit-gallery.scss');
 module.exports = {
   template: require('./edit-gallery.html'),
   controller: ['$log', 'galleryService', EditGalleryController],
-  controllerAs: 'editGallery',
+  controllerAs: 'editGalleryCtrl',
   bindings: {
     gallery: '<'
   }

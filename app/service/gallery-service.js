@@ -88,7 +88,7 @@ function galleryService($q, $log, $http, authService) {
     });
   };
 
-  service.updateGalleries = function(galleryID, galleryData) {
+  service.updateGallery = function(galleryID, galleryData) {
     $log.debug('galleryService.updateGalleries');
 
     return authService.getToken()
@@ -108,7 +108,7 @@ function galleryService($q, $log, $http, authService) {
       for (let i = 0; i < service.galleries.length; i++) {
         let current = service.galleries[i];
         if (current._id === galleryID) {
-          service.gallery[i] = res.data;
+          service.galleries[i] = res.data;
           break;
         }
       }
