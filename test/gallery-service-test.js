@@ -1,10 +1,12 @@
 'use strict';
 
+const url = 'http://localhost:3000/api/gallery';
+
 describe('Gallery Service', function() {
 
   beforeEach(() => {
-    angular.mock.module('cfgram');
-    angular.mock.inject(($rootScope, authService, galleryService, $window, $httpBackend) => {
+    angular.mock.module('cfgram'); //eslint-disable-line
+    angular.mock.inject(($rootScope, authService, galleryService, $window, $httpBackend) => { //eslint-disable-line
       this.$window = $window;
       this.$rootScope = $rootScope;
       this.authService = authService;
@@ -26,7 +28,7 @@ describe('Gallery Service', function() {
         Authorization: 'Bearer test token'
       };
 
-      this.$httpBackend.expectPOST('http://localhost:3000/api/gallery', galleryData, headers)
+      this.$httpBackend.expectPOST(url, galleryData, headers)
       .respond(200, {
         _id: '1234',
         username: 'testuser',
@@ -41,5 +43,25 @@ describe('Gallery Service', function() {
     });
   });
 
-  //TODO: create delete gallery test w/ expectDELETE to API endpoint
-})
+  describe('galleryService.deleteGallery', () => {
+    it('should delete a gallery', () => {
+      let galleryData = {
+        _id: '1234',
+        name: 'example gallery',
+        desc: 'example description'
+      };
+
+      let headers = {
+        Authorization: 'Bearer test token',
+        Accept: 'application/json'
+      };
+
+      this.$httpBackend.expectDELETE(`${url}/${galleryData._id}`, headers)
+      .respond(204, {});
+
+      this.galleryService.deleteGallery(galleryData._id);
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+    });
+  });
+});

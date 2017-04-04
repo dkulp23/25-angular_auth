@@ -129,7 +129,8 @@ function galleryService($q, $log, $http, authService) {
       let url = `${__API_URL__}/api/gallery/${galleryID}`; //eslint-disable-line
       let config = {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
+          Accept: 'application/json'
         }
       };
 
