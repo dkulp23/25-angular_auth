@@ -29,7 +29,9 @@ function picService($q, $log, $http, Upload, authService) {
         }
       })
       .then( res => {
+        $log.debug('galleryData', galleryData);
         galleryData.pics.unshift(res.data);
+        $log.debug('pics array', galleryData.pics);
         return res.data;
       })
       .catch( err => {
@@ -41,8 +43,6 @@ function picService($q, $log, $http, Upload, authService) {
 
   service.deleteGalleryPic = function(galleryData, picData) {
     $log.debug('picService.deleteGalleryPic');
-    $log.debug('gallery', galleryData);
-    $log.debug('pic', picData);
 
     return authService.getToken()
     .then( token => {
@@ -57,6 +57,13 @@ function picService($q, $log, $http, Upload, authService) {
     })
     .then( res => {
       $log.log(res);
+      for (let i = 0; i < galleryData.pics.length; i++) {
+        let current = galleryData.pics[i];
+        if (current._id === picData._id) {
+          galleryData.pics.splice(i, 1);
+          break;
+        }
+      }
     })
     .catch( err => {
       $log.error(err.message);
