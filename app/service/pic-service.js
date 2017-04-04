@@ -41,15 +41,19 @@ function picService($q, $log, $http, Upload, authService) {
 
   service.deleteGalleryPic = function(galleryData, picData) {
     $log.debug('picService.deleteGalleryPic');
+    $log.debug('gallery', galleryData);
+    $log.debug('pic', picData);
 
     return authService.getToken()
     .then( token => {
       let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic/${picData._id}`; //eslint-disable-line
-      let headers = {
-        Authorization: `Bearer ${token}`
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       };
 
-      return $http.delete(url, headers);
+      return $http.delete(url, config);
     })
     .then( res => {
       $log.log(res);
