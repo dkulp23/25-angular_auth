@@ -1,9 +1,9 @@
-const webpackConfig = require('./webpack.config.js');
-webpackConfig.entry = {};
+const webpack = require('./webpack.config.js');
+delete webpack.entry;
 
 module.exports = function(config) {
   config.set({
-    webpack: webpackConfig,
+    webpack,
     basePath: '',
     frameworks: ['jasmine'],
     files: [
@@ -12,14 +12,15 @@ module.exports = function(config) {
     exclude: [
     ],
     preprocessors: {
-      'test/**/*-test.js': ['webpack']
+      'test/**/*-test.js': ['webpack'],
+      'app/entry.js': ['webpack']
     },
     reporters: ['mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     singleRun: false,
     concurrency: Infinity
   });
