@@ -7,7 +7,9 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'test/**/*-test.js'
+      'app/entry.js',
+      'test/**/*-test.js',
+      'node_modules/angular-mocks/angular-mocks.js'
     ],
     exclude: [
     ],
