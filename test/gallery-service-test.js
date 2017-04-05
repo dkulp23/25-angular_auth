@@ -1,17 +1,18 @@
 'use strict';
 
-const url = 'http://localhost:3000/api/gallery';
+const url = `${__API_URL__}/api/gallery`; //eslint-disable-line
 
 describe('Gallery Service', function() {
 
   beforeEach(() => {
     angular.mock.module('cfgram'); //eslint-disable-line
-    angular.mock.inject(($rootScope, authService, galleryService, $window, $httpBackend) => { //eslint-disable-line
+    angular.mock.inject(($rootScope, authService, galleryService, $window, $httpBackend, $log) => { //eslint-disable-line
       this.$window = $window;
       this.$rootScope = $rootScope;
       this.authService = authService;
       this.galleryService = galleryService;
       this.$httpBackend = $httpBackend;
+      this.$log = $log;
     });
   });
 
@@ -60,6 +61,7 @@ describe('Gallery Service', function() {
       .respond(204, {});
 
       this.galleryService.deleteGallery(galleryData._id);
+      this.$log.debug('this', this);
       this.$httpBackend.flush();
       this.$rootScope.$apply();
     });
