@@ -38,7 +38,11 @@ describe('Gallery Service', function() {
         pics: []
       });
 
-      this.galleryService.createGallery(galleryData);
+      this.galleryService.createGallery(galleryData)
+      .then( gallery => {
+        expect(gallery._id).toEqual('1234');
+        expect(gallery.name).toEqual(galleryData.name);
+      });
       this.$httpBackend.flush();
       this.$rootScope.$apply();
     });
@@ -60,7 +64,10 @@ describe('Gallery Service', function() {
       this.$httpBackend.expectDELETE(`${url}/${galleryData._id}`, headers)
       .respond(204, {});
 
-      this.galleryService.deleteGallery(galleryData._id);
+      this.galleryService.deleteGallery(galleryData._id)
+      .then( res => {
+        expect(res.status).toEqual(204);
+      });
       this.$log.debug('this', this);
       this.$httpBackend.flush();
       this.$rootScope.$apply();

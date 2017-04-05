@@ -3,11 +3,10 @@
 describe('Auth Service', function() {
   beforeEach(() => {
     angular.mock.module('cfgram'); //eslint-disable-line
-    angular.mock.inject(($rootScope, authService, $window, $httpBackend) => { //eslint-disable-line
+    angular.mock.inject(($rootScope, authService, $window) => { //eslint-disable-line
       this.$window = $window;
       this.$rootScope = $rootScope;
       this.authService = authService;
-      this.$httpBackend = $httpBackend;
     });
   });
 

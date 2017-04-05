@@ -145,6 +145,7 @@ function galleryService($q, $log, $http, authService) {
           break;
         }
       }
+      return res;
     })
     .catch( err => {
       $log.error(err.message);
