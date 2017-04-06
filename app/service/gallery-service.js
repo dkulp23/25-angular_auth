@@ -113,6 +113,7 @@ function galleryService($q, $log, $http, authService) {
         }
       }
 
+      $log.log('update res data', res.data);
       return res.data;
     })
     .catch( err => {

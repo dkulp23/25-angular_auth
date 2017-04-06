@@ -17,6 +17,9 @@ function GalleryItemController($log, galleryService) {
   this.showEditGallery = false;
 
   this.deleteGallery = function() {
-    galleryService.deleteGallery(this.gallery._id);
+    galleryService.deleteGallery(this.gallery._id)
+    .then( () => {
+      this.deleteDone(this.gallery);
+    });
   };
 }
