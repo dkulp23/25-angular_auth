@@ -2,6 +2,7 @@
   <create-gallery></create-gallery>
   <div class="clearfix"></div>
   <h2>Galleries</h2>
+  <input ng-model="homeCtrl.gallerySearchTerm" type="text" placeholder="search">
   <ul>
     <!-- <li
     class="gallery-box"
@@ -13,7 +14,7 @@
       </ul>
     </li> -->
     <gallery-item
-    ng-repeat="item in homeCtrl.galleries"
+    ng-repeat="item in homeCtrl.galleries | gallerySearch: homeCtrl.gallerySearchTerm"
     gallery="item"
     delete-done="homeCtrl.galleryDeleteDone(galleryData)"
     ng-click="homeCtrl.currentGallery = item"
