@@ -3,7 +3,7 @@
   ng-if="!galleryItemCtrl.showEditGallery">
     <div>
       <span class="item-label">name:</span>
-      <span>{{ galleryItemCtrl.gallery.name }}</span>
+      <span>{{ galleryItemCtrl.gallery.name | hashtagify: galleryItemCtrl.gallery.name }}</span>
     </div>
 
     <div>
