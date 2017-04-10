@@ -38,6 +38,10 @@ module.exports = {
         loader: 'html-loader'
       },
       {
+        test: /\.(eot|woff|ttf|svg).*/,
+        loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
+      },
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
       },
