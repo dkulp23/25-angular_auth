@@ -16,12 +16,12 @@
     </div>
   </div>
 
+  <div class="btn-group" role="group" aria-label="edit-buttons">
+    <button type="button" class="btn btn-default" ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</button>
+    <button class="btn btn-default" ng-click="galleryItemCtrl.deleteGallery()">delete</button>
+  </div>
+  
   <edit-gallery ng-if="galleryItemCtrl.showEditGallery"
   gallery="galleryItemCtrl.gallery">
   </edit-gallery>
-</li>
-
-<li class="edit-btns">
-    <span class="btn-std" ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</span>
-    <span class="btn-std del-btn" ng-click="galleryItemCtrl.deleteGallery()">delete</span>
 </li>
